@@ -1,5 +1,5 @@
 import axios from '../../Axios';
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { FormSearch } from './FormSearch';
 import { ResultsTable } from './ResultsTable';
 import { Filters } from './Filters';
@@ -10,6 +10,7 @@ export const Vehicles = () => {
   let [query, setQuery] = useState('');
   let [page, setPage] = useState(1);
   let [vehicleType, setVehicleType] = useState('all');
+  const queryInput = useRef('query-input');
 
   const getVehicles = async (query, vehicleType, page) => {
     try {
@@ -47,7 +48,7 @@ export const Vehicles = () => {
   const sendQuery = async (e) => {
     e.preventDefault();
 
-    query = document.getElementById('query-input').value
+    query = queryInput.current.value
 
     if (query.length < 1) {
       return e.preventDefault();
@@ -62,7 +63,7 @@ export const Vehicles = () => {
 
   return (
     <>
-      <FormSearch clickFunction={sendQuery} />
+      <FormSearch clickFunction={sendQuery} queryInput={queryInput} />
       {status === 200 ? (
         <div className='mt-3'>
           <Filters onClickAction={handleFilter}/>
