@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../Axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Loading } from '../Loading';
@@ -12,7 +12,7 @@ export const Car = () => {
   useEffect(() => {
     try {
       const getCar = async () => {
-        const response = await axios.get(`http://localhost:3001/api/v1/cars/${id}`);
+        const response = await axios.get(`cars/${id}`);
         setStatus(response.status);
         setCar(response.data.car);
       }

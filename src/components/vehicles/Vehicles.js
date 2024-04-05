@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../Axios';
 import React, { useState } from 'react'
 import { FormSearch } from './FormSearch';
 import { ResultsTable } from './ResultsTable';
@@ -13,7 +13,7 @@ export const Vehicles = () => {
 
   const getVehicles = async (query, vehicleType, page) => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/v1/search`, {
+      const response = await axios.get(`search`, {
         params: {
           q: query,
           vehicle_type: vehicleType,

@@ -1,8 +1,8 @@
+import axios from '../../Axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Table } from '../Table';
 import { Loading } from '../Loading';
-import axios from 'axios';
 
 export const Cars = () => {
   const [cars, setCars] = useState();
@@ -13,7 +13,7 @@ export const Cars = () => {
   useEffect(() => {
     try {
       const getCars = async () => {
-        const response = await axios.get('http://localhost:3001/api/v1/cars', {
+        const response = await axios.get('cars', {
           params: {
             page: page
           }
