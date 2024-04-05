@@ -2,9 +2,31 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.pagination {
+  justify-content: center;
+  
+  button {
+    margin: 5px;
+  }
+}
+
+.actions {
+  display: flex;
+
+  .btn {
+    margin: 5px;
+  }
+}
+
+.search-box {
+  display: flex;
+  width: 500px;
+  margin: auto;
+  justify-content: center;
+}
+
+.result-table {
+  justify-content: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
