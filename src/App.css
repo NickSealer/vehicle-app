@@ -25,6 +25,13 @@
   justify-content: center;
 }
 
+.filters {
+  input[type=radio] {
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+}
+
 .result-table {
   justify-content: center;
 }
