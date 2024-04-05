@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# Description
+This app consumes my other app's REST API, to build the FE side with React. [https://github.com/NickSealer/vehicle_app](https://github.com/NickSealer/vehicle_app)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
