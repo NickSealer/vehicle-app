@@ -18,6 +18,15 @@
   }
 }
 
+.form-actions {
+  display: flex;
+  justify-content: center;
+
+  .btn {
+    margin: 5px;
+  }
+}
+
 .search-box {
   display: flex;
   width: 500px;

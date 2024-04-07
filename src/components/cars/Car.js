@@ -2,7 +2,7 @@ import axios from '../../Axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Loading } from '../Loading';
-import { Card } from '../Card';
+import { Card } from './Card';
 
 export const Car = () => {
   const { id } = useParams();
@@ -25,7 +25,7 @@ export const Car = () => {
   return (
     <>
       {status === 200 ? (
-        <Card vehicle={car} resource='cars' />
+        <Card car={car} />
       ) : (
         <Loading />
       )}

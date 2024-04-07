@@ -1,13 +1,15 @@
 import axios from '../../Axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Table } from '../Table';
+import { Table } from './Table';
 import { Loading } from '../Loading';
 
 export const Cars = () => {
   const [cars, setCars] = useState();
   const [status, setStatus] = useState(0);
   const [page, setPage] = useState(1);
+  const [nextPage, setNextPage] = useState(0);
+  const [previousPage, setPreviousPage] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,6 +22,8 @@ export const Cars = () => {
         });
         setStatus(response.status);
         setCars(response.data.cars);
+        setNextPage(response.data.metadata.next_page)
+        setPreviousPage(response.data.metadata.previous_page)
         navigate(`/cars?page=${page}`)
       }
       getCars();
@@ -29,21 +33,21 @@ export const Cars = () => {
   }, [page, navigate]);
 
   const handleNextPage = () => {
-    if (cars.length >= 10) {
-      setPage(page + 1);
+    if (nextPage) {
+      setPage(parseInt(nextPage));
     }
   }
 
   const handlePreviousPage = () => {
-    if (page > 1) {
-      setPage(page - 1);
+    if (previousPage) {
+      setPage(parseInt(previousPage));
     }
   }
 
   return (
     <>
       {status === 200 ? (
-        <Table data={cars} resource='cars' next={handleNextPage} previous={handlePreviousPage} />
+        <Table data={cars} next={handleNextPage} previous={handlePreviousPage} />
       ) : (
         <Loading />
       )}
